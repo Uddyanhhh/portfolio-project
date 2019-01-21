@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="generator" content="">
-    <title>Uddyan's Portfolio </title>
+    <title>{{ blog.title }}</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
@@ -25,45 +25,25 @@
             <div class="navbar-nav ml-auto">
                 <a class="nav-item nav-link " href="https://www.linkedin.com/in/uddyan-sinha">LinkedIn</a>
                 <a class="nav-item nav-link" href="#">Resume</a>
-                <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+                <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
             </div>
         </div>
     </nav>
 </header>
 
 <main role="main">
+    <div class="container">
+    <hr/>
+        <h1 class="text-center pt-3">{{ blog.title }}</h1>
+        <p class="text-center">{{ blog.pub_date }}</p>
+        <img class="img-fluid" src="{{ blog.image.url }} " />
+        <br />
+        <br />
+        <p>{{ blog.body }}</p>
 
-    <section class="jumbotron text-center">
-        <div class="container">
-            <h1 class="jumbotron-heading">Hi, I'm Uddyan.</h1>
-            <p class="lead text-muted">Thanks for stopping by,I am a seasoned web developer and a fulltime Pythonista.
-                I love to make products that can touch life in a meaningful way.I also want to share my knowledge
-                through online teaching or blogging.</p>
-            <p>
-                <a href="mailto:uddyanhhh@gmail.com" class="btn btn-primary my-2">Email me</a>
-            </p>
-                <img src="{% static '68240d90-759e-42b5-9625-ba4e92e9f7bc.jpg' %}" height="300" width="200" />
-        </div>
-    </section>
-
-    <div class="album py-5 bg-light">
-        <div class="container">
-            <div class="row">
-                {% for job in jobs.all %}
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow">
-                        <img class="img-fluid"card-img-top" src="{{ job.image.url }}" height="200" width="200/>
-                        <div class="card-body">
-                            <p class="card-text">{{ job.summary }}</p>
-                        </div>
-                    </div>
-                {% endfor %}
-                </div>
-            </div>
-        </div>
     </div>
-
 </main>
+
 
 <footer class="text-muted">
     <div class="container text-center">
